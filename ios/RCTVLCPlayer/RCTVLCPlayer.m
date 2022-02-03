@@ -287,6 +287,14 @@ static NSString *const playbackRate = @"rate";
     }
 }
 
+
+- (void)setRepeat:(BOOL)value
+{
+    if (_player) {
+        [[_player audio] setRepeat:value];
+    }
+}
+
 - (void)_release
 {
     if(_player){
