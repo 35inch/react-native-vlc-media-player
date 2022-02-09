@@ -17,6 +17,5 @@
 
 - (instancetype)initWithEventDispatcher:(RCTEventDispatcher *)eventDispatcher NS_DESIGNATED_INITIALIZER;
 - (void)setMuted:(BOOL)value;
-- (void)setRepeat:(BOOL)value;
 
 @end
