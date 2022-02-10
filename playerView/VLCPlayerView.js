@@ -140,11 +140,11 @@ export default class VLCPlayerView extends Component {
           let currentTime = new Date().getTime();
           if (this.touchTime === 0) {
             this.touchTime = currentTime;
-            this.setState({ showControls: !this.state.showControls });
+            this.setState({ showControls: true });
           } else {
             if (currentTime - this.touchTime >= 500) {
               this.touchTime = currentTime;
-              this.setState({ showControls: !this.state.showControls });
+              this.setState({ showControls: true });
             }
           }
         }}>
