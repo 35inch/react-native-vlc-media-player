@@ -92,7 +92,7 @@ export default class ControlBtn extends Component {
                 )
               }
 
-               {showSlider && totalTime > 0 &&(
+               {totalTime > 0 &&(
                 <View
                   style={{
                     flex: 1,
