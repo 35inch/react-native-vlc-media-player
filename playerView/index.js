@@ -26,7 +26,7 @@ export default class CommonVideo extends Component {
   constructor(props) {
     super(props);
     this.url = '';
-    this.initialHeight = 200;
+    this.initialHeight = 280;
 
     if (props.widthCamera) {
       deviceWidth = props.widthCamera
@@ -230,7 +230,7 @@ export default class CommonVideo extends Component {
     return (
       <View
         //onLayout={this._onLayout}
-        style={[isFull ? styles.container : { height: 200, backgroundColor: '#000' }, style]}>
+        style={[isFull ? styles.container : { height: 280, backgroundColor: '#222' }, style]}>
         {showTop && <View style={styles.topView}>
           <View style={styles.backBtn}>
             {showBack && <TouchableOpacity
