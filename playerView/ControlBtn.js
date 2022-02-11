@@ -51,6 +51,7 @@ export default class ControlBtn extends Component {
   };
 
   render() {
+    console.log("totalTime = ",totalTime);
     let {
       paused,
       isFull,
