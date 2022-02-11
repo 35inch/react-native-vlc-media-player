@@ -353,6 +353,7 @@ export default class VLCPlayerView extends Component {
     if (isError) {
       this.reloadSuccess = true;
       let { currentTime, totalTime } = this.state;
+      console.log(currentTime, " ----------- ",totalTime);
       if (Platform.OS === 'ios') {
         this.vlcPlayer.seek(Number((currentTime / totalTime).toFixed(17)));
       } else {
@@ -394,14 +395,6 @@ export default class VLCPlayerView extends Component {
    * @param event
    */
   onProgress(event) {
-    /* console.log(
-     'position=' +
-     event.position +
-     ',currentTime=' +
-     event.currentTime +
-     ',remainingTime=' +
-     event.remainingTime,
-     );*/
     let currentTime = event.currentTime;
     let loadingSuccess = false;
     if (currentTime > 0 || this.state.currentTime > 0) {
@@ -427,9 +420,6 @@ export default class VLCPlayerView extends Component {
    * @param event
    */
   onEnded(event) {
-    console.log('onEnded ---------->')
-    console.log(event)
-    console.log('<---------- onEnded ')
     let { currentTime, totalTime } = this.state;
     // [bavv add start]
     let { onVLCEnded, onEnd, autoplay, isGG } = this.props;
