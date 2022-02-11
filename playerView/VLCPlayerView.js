@@ -343,7 +343,6 @@ export default class VLCPlayerView extends Component {
     if (isError) {
       this.reloadSuccess = true;
       let { currentTime, totalTime } = this.state;
-      console.log("currentTimeAndTotalTime --- ",currentTime, " ----------- ",totalTime);
       if (Platform.OS === 'ios') {
         this.vlcPlayer.seek(Number((currentTime / totalTime).toFixed(17)));
       } else {
