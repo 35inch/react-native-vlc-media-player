@@ -77,7 +77,6 @@ export default class VLCPlayerView extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (this.props.uri !== prevProps.uri) {
-      console.log("componentDidUpdate");
       this.changeUrl = true;
     }
   }
@@ -219,7 +218,7 @@ export default class VLCPlayerView extends Component {
                   onEnd={() => {
                     onEnd && onEnd();
                   }}
-                //maxTime={Math.ceil(this.state.totalTime)}
+                maxTime={Math.ceil(this.state.totalTime)}
                 />
               </View>
             )}
@@ -277,7 +276,6 @@ export default class VLCPlayerView extends Component {
     // if (this.state.paused) {
     //   this.setState({ paused: false });
     // }
-    console.log('onPlaying');
   }
 
   /**
@@ -290,7 +288,6 @@ export default class VLCPlayerView extends Component {
     // } else {
     //   this.setState({ showControls: true });
     // }
-    console.log('onPaused');
   }
 
   /**
@@ -306,12 +303,9 @@ export default class VLCPlayerView extends Component {
     if (!this.bufferInterval) {
       this.bufferInterval = setInterval(this.bufferIntervalFunction, 250);
     }
-    console.log('onBuffering');
-    console.log(event);
   }
 
   bufferIntervalFunction = () => {
-    console.log('bufferIntervalFunction');
     let currentTime = new Date().getTime();
     let diffTime = currentTime - this.bufferTime;
     if (diffTime > 1000) {
@@ -325,7 +319,6 @@ export default class VLCPlayerView extends Component {
         });
       });
       this.bufferInterval = null;
-      console.log('remove  bufferIntervalFunction');
     }
   };
 
@@ -343,17 +336,14 @@ export default class VLCPlayerView extends Component {
   };
 
   _onOpen = e => {
-    console.log('onOpen', e);
   };
 
   _onLoadStart = e => {
-    console.log('_onLoadStart');
-    console.log(e);
     let { isError } = this.state;
     if (isError) {
       this.reloadSuccess = true;
       let { currentTime, totalTime } = this.state;
-      console.log(currentTime, " ----------- ",totalTime);
+      console.log("currentTimeAndTotalTime --- ",currentTime, " ----------- ",totalTime);
       if (Platform.OS === 'ios') {
         this.vlcPlayer.seek(Number((currentTime / totalTime).toFixed(17)));
       } else {
@@ -436,9 +426,6 @@ export default class VLCPlayerView extends Component {
             onEnd && onEnd();
             if (!isGG) {
               this.vlcPlayer.resume && this.vlcPlayer.resume(false);
-              console.log(this.props.uri + ':   onEnded');
-            } else {
-              console.log('片头：' + this.props.uri + ':   onEnded');
             }
             this.isEnding = true;
           }
