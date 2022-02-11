@@ -92,8 +92,6 @@ export default class ControlBtn extends Component {
                   </TouchableOpacity>
                 )
               }
-
-               {totalTime > 0 &&(
                 <View
                   style={{
                     flex: 1,
@@ -129,7 +127,6 @@ export default class ControlBtn extends Component {
                   </Text>
                   </View>
                 </View>
-              )}
 
               <View style={styles.right}>
                 <TouchableOpacity
