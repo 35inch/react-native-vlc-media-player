@@ -137,7 +137,6 @@ export default class CommonVideo extends Component {
     });
 
     let { isFull } = this.props;
-    console.log(`isFull == ${isFull}`);
     if (isFull) {
       this._toFullScreen();
     }
@@ -176,7 +175,6 @@ export default class CommonVideo extends Component {
 
   _onLayout = (e) => {
     let { width, height } = e.nativeEvent.layout;
-    console.log(e.nativeEvent.layout);
     if (width * height > 0) {
       this.width = width;
       this.height = height;
