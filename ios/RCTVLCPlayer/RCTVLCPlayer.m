@@ -126,8 +126,7 @@ static NSString *const playbackRate = @"rate";
     NSURL* _uri    = [NSURL URLWithString:uri];
     NSDictionary* initOptions = [source objectForKey:@"initOptions"];
 
-    //_player = [[VLCMediaPlayer alloc] init];
-    _player = [[VLCMediaPlayer alloc] initWithOptions:@[@"--gain=0"]];
+    _player = [[VLCMediaPlayer alloc] init];
     // [bavv edit end]
 
     [_player setDrawable:self];
@@ -138,7 +137,6 @@ static NSString *const playbackRate = @"rate";
 
     for (NSString* option in initOptions) {
         [media addOption:[option stringByReplacingOccurrencesOfString:@"--" withString:@""]];
-	[media addOption:[option stringByReplacingOccurrencesOfString:@"--" withString:@""]];
     }
 
     _player.media = media;
