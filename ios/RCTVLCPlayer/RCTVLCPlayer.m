@@ -100,7 +100,6 @@ static NSString *const playbackRate = @"rate";
     [_player setDrawable:self];
     _player.delegate = self;
     _player.scaleFactor = 0;
-    [[_player audio] setMuted:true];
     VLCMedia *media = [VLCMedia mediaWithURL:_uri];
 
     for (NSString* option in initOptions) {
@@ -133,7 +132,6 @@ static NSString *const playbackRate = @"rate";
     [_player setDrawable:self];
     _player.delegate = self;
     _player.scaleFactor = 0;
-    [[_player audio] setMuted:true];
 
     VLCMedia *media = [VLCMedia mediaWithURL:_uri];
 
